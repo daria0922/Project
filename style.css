@@ -1,0 +1,488 @@
+/* Звичайна товщина */
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Звичайна товщина */
+@font-face {
+  font-family: "Montagu Slab";
+  src: url("fonts/Montagu_Slab/static/MontaguSlab_24pt-SemiBold.ttf") format("truetype");
+  font-weight: 600; /* бо SemiBold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Molle";
+  src: url("fonts/Molle/Molle-Italic.ttf") format("truetype");
+  font-weight: 300; /* бо SemiBold */
+  font-style: normal;
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.montagu-slab {
+  font-family: "Montagu Slab", serif;
+  font-size: 30px;
+}
+
+.molle {
+  font-family: "Molle-Italic", serif;
+  font-size: 30px;
+}
+
+/* Тепер застосовуємо шрифт до всіх елементів */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #413a40;
+  color: #333;
+}
+
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #007bff;
+}
+
+.user-actions a {
+  text-decoration: none;
+  color: #333;
+  margin-left: 20px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.user-actions a:hover {
+  color: #007bff;
+}
+
+.hero {
+  position: relative;
+  width: 100%; /* по ширині екрану */
+  height: 400px;
+  text-align: center;
+  padding: 100px 20px; /* можна трохи збільшити */
+  background-image: url("photos/main5.jpg"); /* шлях до фото */
+  background-size: cover; /* щоб картинка займала весь блок */
+  background-position: center; /* центрування фото */
+  background-repeat: no-repeat;
+}
+
+.hero h2 {
+  font-size: 36px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.btn {
+  display: inline-block;
+  width: 150px;
+  height: 45px;
+  padding: 12px 24px;
+  background-color: #d08d8d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  text-align: center;
+  transition: 1s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  width: 200px;
+  transition: 1.5s;
+}
+
+section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 50px;
+  color: #fff;
+  text-align: center;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #2f1717;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  margin: 15px 0 10px;
+}
+
+.product-card p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.product-card button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+  background-color: #555;
+}
+
+#about,
+#contact {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+#about p,
+#contact p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 15px;
+}
+
+footer {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 40px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-actions {
+    display: flex;
+    gap: 20px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}
+
+.icon img {
+  width: 50px;
+  height: 50px;
+}
+
+.span_1 {
+  color: #984b4b;
+}
+
+.home {
+  margin-bottom: 100px;
+}
+
+.info {
+  color: white;
+}
+
+.img {
+  width: 30px;
+  height: 30px;
+}
+
+.cart_h1 {
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+}
+
+.button_to_home {
+  height: 50px;
+  width: 225px;
+  background-color: rgb(34, 34, 34);
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: white;
+  box-shadow: #656565 0px 5px 0px 0px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 2s;
+  margin-bottom: 50px;
+}
+
+.button_to_home:hover {
+  width: 275px;
+  transition: 1s;
+  border-radius: 30px;
+  margin-top: 10px;
+  box-shadow: #007bff 0px 5px 5px 5px;
+}
+
+.button_to_home a {
+  color: white;
+}
+
+.button_div {
+  text-align: center;
+}
+
+.lost_cart {
+  text-align: center;
+  color: rgb(255, 114, 114);
+  margin: 50px;
+  font-size: 20px;
+}
+
+/* Загальний контейнер */
+.cart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+/* Ліва частина (список товарів) */
+.cart-items {
+  flex: 2;
+}
+
+/* Окремий товар */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 15px;
+  border-bottom: 1px solid #827b7b;
+  border-bottom-width: 5px;
+  padding: 20px 0;
+}
+
+.cart-item img {
+  width: 45%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-info h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  margin-bottom: 8px;
+  margin-top: 5px;
+  color: #1f1f1f;
+}
+
+.cart-item-info p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Кнопки кількості */
+.cart-quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-quantity button {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cart-price {
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+/* Кнопка видалення */
+.cart-remove {
+  margin-left: 20px;
+  cursor: pointer;
+  color: #777;
+}
+
+/* Права частина (підсумок) */
+.cart-summary {
+  flex: 1;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.cart-summary h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.cart-summary p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.cart-summary .total {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.btn-remove {
+  align-self: flex-start; /* кнопка прилипає ліворуч */
+  margin-top: auto; /* відштовхує кнопку вниз */
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-remove:hover {
+  background: #444;
+}
+
+.button_card {
+  width: 200px;
+  align-items: center;
+  text-align: center;
+  height: 37px;
+  box-shadow: black 0px 5px 0px 5px;
+  transition: 2s;
+}
