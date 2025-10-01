@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новинки</title>
+
+
+    <link rel="stylesheet" href="static\style.css">
+</head>
+<body>
+  <header>
+    <nav>
+        <div class="logo">
+            <h1>
+                <span class="molle">E</span>
+                <span class="montserrat">Étoile</span>
+            </h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Головна</a></li>
+            <li><a href="#shop">Магазин</a></li>
+            <li><a href="#new">Новинки</a></li>
+            <li><a href="#about">Про нас</a></li>
+            <li><a href="#contact">Контакти</a></li>
+        </ul>
+        <div class="user-actions">
+            <div class="user-actions">
+              <a href="{{ url_for('view_cart') }}">
+                  <img src="{{ url_for('static', filename='photos/bas.jpg') }}" alt="" width="30">
+              </a>
+              <a href="#account"><img src="{{ url_for('static', filename='photos/basket.png') }}" alt="" width="30">
+              </a>
+            </div>          
+            
+        </div>
+    </nav>
+  </header>
+
+        
+  <section id="shop">
+    <h5>НОВИНКИ</h5>
+    <div class="product-grid">
+        <!-- Jinja2 цикл: виводимо всі товари з бази -->
+        {% for product in products if product['is_new'] %}
+        <div class="product-card">
+            <!-- Виводимо фото товару -->
+            <img src="{{ url_for('static', filename=product['image_url'].replace('static/', '')) }}" alt="{{ product['name'] }}">
+            <!-- Назва товару -->
+            <h4>{{ product['name'] }}</h4>
+            <!-- Ціна товару -->
+            <p>{{ product['price'] }} грн</p>
+            <!-- Форма для додавання товару у кошик -->
+            <form action="{{ url_for('add_to_cart', product_id=product['id']) }}" method="post">
+                <!-- За замовчуванням додається 1 штука -->
+                <input type="hidden" name="quantity" value="1">
+                <!-- Кнопка -->
+                <button type="submit">Додати до кошика</button>
+            </form>
+        </div>
+        {% endfor %}
+    </section>
+
+
+        <p>&copy; 2025 TrendyWear. Усі права захищено.</p>
+    </footer>
+</body>
+</html>

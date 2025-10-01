@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інтернет-магазин одягу</title>
+    <link rel="stylesheet" href="static\style.css">
+</head>
+<body>
+  <header>
+    <nav>
+        <div class="logo">
+            <h1>
+                <span class="molle">E</span>
+                <span class="montserrat">Étoile</span>
+            </h1>
+        </div>
+        <ul class="nav-links">
+            <li><a class="nav" href="#home">Головна</a></li>
+            <li><a class="nav" href="#shop">Магазин</a></li>
+            <li><a class="nav" href="/new">Новинки</a></li>
+            <li><a class="nav" href="#about">Про нас</a></li>
+            <li><a class="nav" href="#contact">Контакти</a></li>
+        </ul>
+        <div class="user-actions">
+            <a href="#search">Пошук</a>
+            <div class="user-actions">
+              <a href="{{ url_for('view_cart') }}">
+                  <img  class="img" src="{{ url_for('static', filename='photos/bas.jpg') }}" alt="">
+              </a>
+          </div>          
+            <a href="#account"><img class="img" src="{{ url_for('static', filename='photos/basket.png') }}" alt="">
+            </a></a>
+        </div>
+    </nav>
+  </header>
+
+
+    <section id="home">
+        <div class="hero">
+          <h2>Нова колекція</h2>
+          <h3>ОСІНЬ 2025</h3>
+          <h2>Знижки до <span class="span_1"> -40%</span></h2>
+          
+            <a href="/new" class="btn">Перейти</a>
+        </div>
+    </section>
+
+    <section id="shop">
+        <h2>Популярні товари</h2>
+        <div class="product-grid">
+            <div class="product-card">
+              <img src="{{ url_for('static', filename='photos/t-shirt.jpeg') }}" alt="Футболка унісекс"> 
+                <h4>Жіноча футболка oversize</h4>
+                <p>650 грн</p>
+                <button>Додати до кошика</button>
+            </div>
+            <div class="product-card">
+              <img src="{{ url_for('static', filename='photos/jeans.jpeg') }}" alt="My Logo"> 
+                <h4>Жіночі джинси</h4>
+                <p>1400 грн</p>
+                <button>Додати до кошика</button>
+            </div>
+            <div class="product-card">
+              <img src="{{ url_for('static', filename='photos/shirt.jpeg') }}" alt="My Logo"> 
+                <h4>Сорочка Staff squares</h4>
+                <p>1260 грн</p>
+                <button>Додати до кошика</button>
+            </div>
+            <div class="product-card">
+              <img src="{{ url_for('static', filename='photos/hudi.jpeg') }}" alt="Жіночий світшот oversize fleece"> 
+                  <h4>Жіночий світшот oversize fleece</h4>
+                  <p>780 грн</p>
+                  <button>Додати до кошика</button>
+              </div>
+              <div class="product-card">
+                <img src="{{ url_for('static', filename='photos/t-shirt2.jpeg') }}" alt="My Logo"> 
+                    <h4>Футболка Staff navy</h4>
+                    <p>440 грн</p>
+                    <button>Додати до кошика</button>
+                </div>
+                <div class="product-card">
+                  <img src="{{ url_for('static', filename='photos/t-shirt3.jpeg') }}" alt="My Logo"> 
+                      <h4>Футболка khaki</h4>
+                      <p>440 грн</p>
+                      <button>Додати до кошика</button>
+                  </div>
+
+                  <div class="product-card">
+                    <img src="{{ url_for('static', filename='photos/hudi2.jpeg') }}" alt="My Logo"> 
+                        <h4>Худі gray zip</h4>
+                        <p>1310 грн</p>
+                        <button>Додати до кошика</button>
+                  </div>
+
+                  <div class="product-card">
+                    <img src="{{ url_for('static', filename='photos/dress.jpeg') }}" alt="My Logo"> 
+                        <h4>Сукня dark gray</h4>
+                        <p>470 грн</p>
+                        <button>Додати до кошика</button>
+                    </div>
+        </div>
+    </section>
+
+    <section id="new">
+        <h2>Новинки</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="new1.jpg" alt="Сорочка лляна">
+                <h3>Сорочка лляна</h3>
+                <p>900 грн</p>
+                <button>Додати до кошика</button>
+            </div>
+            <div class="product-card">
+                <img src="new2.jpg" alt="Джинси широкі">
+                <h3>Джинси широкі</h3>
+                <p>1600 грн</p>
+                <button><div class="btn">Додати до кошика</div></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>Про нас</h2>
+        <p class="info">TrendyWear – це український бренд, який створює сучасний та якісний одяг для тих, хто цінує стиль і комфорт. Ми надихаємося міськими вайбами та глобальними трендами.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Контакти</h2>
+        <p class="info">Email: info@Étoile.com</p>
+        <p class="info">Телефон: +380 987 654 321</p>
+        <p class="info">Адреса: вул. Стильна, 12, Київ, Україна</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Étoile. Усі права захищено.</p>
+    </footer>
+</body>
+</html>

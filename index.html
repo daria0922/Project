@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інтернет-магазин одягу</title>
+    <!-- Підключаємо CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <nav>
+        <div class="logo">
+            <h1>
+                <span class="molle">E</span>
+                <span class="montserrat">Étoile</span>
+            </h1>
+        </div>
+        <!-- Меню навігації -->
+        <ul class="nav-links">
+            <li><a class="nav" href="#home">Головна</a></li>
+            <li><a class="nav" href="#shop">Магазин</a></li>
+            <li><a class="nav" href="{{ url_for('new') }}">Новинки</a></li>
+            <li><a class="nav" href="#about">Про нас</a></li>
+            <li><a class="nav" href="#contact">Контакти</a></li>
+        </ul>
+        <div class="user-actions">
+            <!-- Посилання на кошик -->
+            <a href="{{ url_for('view_cart') }}">
+                <img class="img" src="{{ url_for('static', filename='photos/bas.jpg') }}" alt="Кошик">
+            </a>
+            <!-- Іконка акаунту -->
+            <a href="#account"><img class="img" src="{{ url_for('static', filename='photos/basket.png') }}" alt="Акаунт"></a>
+        </div>
+    </nav>
+  </header>
+
+  <!-- Блок із рекламою нової колекції -->
+  <section id="home">
+      <div class="hero">
+          <h2 style="margin-bottom: 50px;"> НОВА КОЛЕКЦІЯ</h2>
+          <h3>ОСІНЬ 2025</h3>
+          <h2>ЗНИЖКИ ДО <span class="span_1"> -40%</span></h2>
+          <!-- Кнопка веде на сторінку з новинками -->
+          <a href="{{ url_for('new') }}" class="btn">Перейти</a>
+      </div>
+  </section>
+
+  <!-- Основний розділ: Магазин -->
+  <section id="shop">
+      <h5>Популярні товари</h5>
+      <div class="product-grid">
+          <!-- Jinja2 цикл: виводимо всі товари з бази -->
+          {% for product in products %}
+          <div class="product-card">
+              <!-- Виводимо фото товару -->
+              <img src="{{ url_for('static', filename=product['image_url'].replace('static/', '')) }}" alt="{{ product['name'] }}">
+              <!-- Назва товару -->
+              <h4 style="margin-top: 10px;">{{ product['name'] }}</h4>
+              <!-- Ціна товару -->
+              <p>{{ product['price'] }} грн</p>
+              <!-- Форма для додавання товару у кошик -->
+              <form action="{{ url_for('add_to_cart', product_id=product['id']) }}" method="post">
+                  <!-- За замовчуванням додається 1 штука -->
+                  <input type="hidden" name="quantity" value="1">
+                  <!-- Кнопка -->
+                  <button class="button_card" type="submit">Додати до кошика</button>
+              </form>
+          </div>
+          {% endfor %}
+      </div>
+  </section>
+
+  <!-- Блок "Про нас" -->
+  <section id="about">
+      <h2>Про нас</h2>
+      <p class="info">Étoile – це український бренд, який створює сучасний та якісний одяг для тих, хто цінує стиль і комфорт. Ми надихаємося міськими вайбами та глобальними трендами.</p>
+  </section>
+
+  <!-- Блок "Контакти" -->
+  <section id="contact">
+      <h2>Контакти</h2>
+      <p class="info">Email: info@Étoile.com</p>
+      <p class="info">Телефон: +380 987 654 321</p>
+      <p class="info">Адреса: вул. Стильна, 12, Київ, Україна</p>
+  </section>
+
+  <footer>
+      <p>&copy; 2025 Étoile. Усі права захищено.</p>
+  </footer>
+</body>
+</html>

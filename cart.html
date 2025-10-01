@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Кошик</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <h1>
+            <span class="montagu-slab">E</span>
+            <span class="montserrat">Étoile</span>
+          </h1>
+        </div>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('index') }}">Головна</a></li>
+          <li><a href="{{ url_for('index') }}">Магазин</a></li>
+          <li><a href="{{ url_for('new') }}">Новинки</a></li>
+          <li><a href="#about">Про нас</a></li>
+          <li><a href="#contact">Контакти</a></li>
+        </ul>
+        <div class="user-actions">
+          <a href="{{ url_for('view_cart') }}">
+            <img src="{{ url_for('static', filename='photos/Vector.jpg') }}" alt="cart" width="30" />
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <h5 style="margin-top: 30px;">ВАШ КОШИК</h5>
+
+      {% if cart_items %}
+      <div class="cart-container">
+        
+        <!-- Ліва колонка (товари) -->
+        <div class="cart-items">
+          {% for item in cart_items %}
+          <div class="cart-item">
+            <img src="{{ url_for('static', filename=item.image_url.replace('static/', '')) }}" alt="{{ item.name }}">
+            
+            <div class="cart-item-info">
+              <h4>{{ item.name }}</h4>
+              <p>Ціна: {{ item.price }} грн</p>
+              <p>Кількість: {{ item.quantity }}</p>
+              <p>Сума: {{ item.total }} грн</p>
+            </div>
+
+            <a href="{{ url_for('remove_from_cart', product_id=item.id) }}" class="btn-remove">×</a>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Права колонка (підсумок) -->
+        <div class="cart-summary">
+          <h2>Підсумок</h2>
+          <p>Загальна сума: <b>{{ total_price }} грн</b></p>
+          <button class="checkout-btn">Оформити замовлення</button>
+        </div>
+
+      </div>
+      {% else %}
+      <p class="lost_cart">Ваш кошик порожній.</p>
+      {% endif %}
+
+      <div class="button_div">
+        <button class="button_to_home">
+          <a style="text-decoration: none" href="{{ url_for('index') }}">Повернутися до магазину</a>
+        </button>
+      </div>
+    </main>
+  </body>
+</html>
